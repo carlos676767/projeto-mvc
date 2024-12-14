@@ -7,7 +7,7 @@ export default class SwaggerConfig {
     app.use(`/docs`, swaggerUi.serve, swaggerUi.setup(docs));
   }
 
-  static options() {
+   static  options() {
     return {
       definition: {
         openapi: "3.0.0",
@@ -20,4 +20,6 @@ export default class SwaggerConfig {
       apis: ["../routes/*.js"],
     };
   }
+
 }
+

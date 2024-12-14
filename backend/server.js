@@ -4,6 +4,8 @@ import env, { parse } from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
 import SwaggerConfig from "./docs/swaggerConfig.js";
+import router from "./routers/router.js";
+
 
 env.config();
 class ExpressJs {
@@ -21,8 +23,10 @@ class ExpressJs {
     this.#api.use(this.#parser);
     this.#api.use(this.#corsJs);
     SwaggerConfig.App(this.#api)
+    this.#api.use(router)
     this.#onfigExpress()
   }
 }
 
 ExpressJs.startApi()
+ 

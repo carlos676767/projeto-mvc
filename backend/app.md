@@ -1,0 +1,3 @@
+- a view exibe os dados para o usuario.
+- model e aonde vc faz a conexao com o banco de dados e as validacoes.
+- controller e aonde vc trabalha com a rota e chama os models passando os valores da req e la voce manda os valores do model para a view
