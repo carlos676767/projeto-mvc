@@ -55,7 +55,7 @@ export default class InsertBook extends ValideItens {
       await database.exec(`COMMIT`)
     } catch (error) {
       await database.exec(`ROLLBACK`)
-      throw new Error(error.message);
+      return error
     
     } finally {
       await database.close();

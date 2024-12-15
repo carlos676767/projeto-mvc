@@ -17,7 +17,8 @@ import DatabaseConnect from "./db/connectDbService.js";
 
       await database.exec(`COMMIT`);
     } catch (error) {
-      throw new Error(error);
+      await database.exec(`ROLLBACK`)
+      return error
     } finally {
       await database.close();
     }

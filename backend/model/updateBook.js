@@ -1,6 +1,6 @@
 import DatabaseConnect from "./db/connectDbService.js";
 
-class OptionsValue extends Validacoes {
+class OptionsValue  {
   static option(option) {
 
     const objectValue = {

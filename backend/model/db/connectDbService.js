@@ -7,7 +7,7 @@ export default class DatabaseConnect {
   static async connect() {
     try {
       return this.mySqlite.open({
-        filename: `../myDatabase`,
+        filename: `C://Users//Administrator//Desktop//projeto mvc//backend//model//db//myDatabase.db`,
         driver: sql3.Database,
       });
     } catch (error) {

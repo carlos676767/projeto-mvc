@@ -1,17 +1,18 @@
 
-import DatabaseConnect from "./db/connectDbService";
+import DatabaseConnect from "./db/connectDbService.js";
 
 export default class GetBooks {
   static async getBooks() {
     const db = await DatabaseConnect.connect();
+    
     try {
-      const getBooks = await db.all();
+      const getBooksS = await db.all(`SELECT * FROM LIVROS`);
 
-      if (getBooks.length == 0) {
+      if (getBooksS.length == 0) {
         throw new Error("there are no books available");
       }
 
-      const getBooksMap = getBooks.map((char) => ({
+      const getBooksMap = getBooksS.map((char) => ({
         livro: char.NOME_LIVRO,
         autor: char.AUTOR,
         ano_publicacao: char.ANO_PUB,
@@ -20,7 +21,8 @@ export default class GetBooks {
 
       return getBooksMap;
     } catch (error) {
-      throw new Error(error.message);
+      throw new Error(error);
+      
     }finally{
         await db.close()
     }

@@ -72,6 +72,6 @@ const router = express.Router()
  */
 router.post(`/book/insert`, Books.productInsert)
 router.delete(`/deleteBook/:id`, Books.deleteBook)
-
+router.get(`/getBook`, Books.getBooks)
 
 export default router

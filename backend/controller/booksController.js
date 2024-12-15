@@ -15,7 +15,7 @@ export default class Books {
     }
   }
 
-  
+
   static async deleteBook(req, res) {
     try {
       const { id } = req.params;
@@ -26,7 +26,7 @@ export default class Books {
       res.status(400).send({ msg: error });
     }
   }
-
+  
 
   static async UpdateBook(req, res) {
     try {
@@ -42,10 +42,14 @@ export default class Books {
 
   static async getBooks(req, res) {
     try {
-      const getBooks = GetBooks.getBooks();
+      const getBooks =  await GetBooks.getBooks();
+     
+      
       res.status(200).send({ books: getBooks });
     } catch (error) {
-      res.status(400).send({ err: error });
+      console.log(error.message);
+      
+      res.status(400).send({ err: error.message });
     }
   }
 }
